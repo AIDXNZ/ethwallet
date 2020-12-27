@@ -31,6 +31,11 @@ dependencies:
   majascan: ^0.3.7
   wave: ^0.1.0
   share: ^0.6.5+4
+  flutter_webview_plugin: ^0.3.11
+  wallet_core: ^0.2.4+21
+  pull_to_refresh: ^1.6.3
+  fluttertoast: ^7.1.6
+  flutter_beautiful_popup: ^1.5.0
 
 
   # The following adds the Cupertino Icons font to your application.

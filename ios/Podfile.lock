@@ -1,21 +1,37 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_webview_plugin (0.0.1):
+    - Flutter
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
   - majascan (0.0.4):
     - Flutter
   - path_provider (0.0.1):
     - Flutter
   - share (0.0.1):
     - Flutter
+  - Toast (4.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - majascan (from `.symlinks/plugins/majascan/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share (from `.symlinks/plugins/share/ios`)
 
+SPEC REPOS:
+  trunk:
+    - Toast
+
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_webview_plugin:
+    :path: ".symlinks/plugins/flutter_webview_plugin/ios"
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
   majascan:
     :path: ".symlinks/plugins/majascan/ios"
   path_provider:
@@ -25,9 +41,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
+  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   majascan: 6ad3804777ac93f1ca09160e5d38197e4387081d
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   share: 0b2c3e82132f5888bccca3351c504d0003b3b410
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

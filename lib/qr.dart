@@ -1,12 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hive/hive.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:majascan/majascan.dart';
 import 'package:share/share.dart';
+import 'package:web3dart/web3dart.dart';
 
-class QrPage extends StatelessWidget {
-  final String addr;
-  const QrPage({this.addr});
+class QrPage extends StatefulWidget {
+  @override
+  _QrPageState createState() => _QrPageState();
+}
+
+class _QrPageState extends State<QrPage> {
+  String addr = '';
+
+  @override
+  void initState() {
+    super.initState();
+    loadDefault();
+  }
+
+  loadDefault() async {
+    var box = await Hive.openBox('myBox');
+    var wallet = Wallet.fromJson(box.get('wallet'), 'password');
+    var address = await wallet.privateKey.extractAddress();
+    setState(() {
+      addr = address.hex;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
