@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:majascan/majascan.dart';
 import 'package:share/share.dart';
 import 'package:wave/config.dart';
+import 'package:web3dart/crypto.dart';
 import 'package:web3dart/web3dart.dart';
 import 'dart:math';
 import 'package:hive/hive.dart';
@@ -332,7 +333,7 @@ class _HomeScreenState extends State<HomeScreen> {
     String content = box.get('wallet');
     Wallet wallet = Wallet.fromJson(content, 'password');
     Credentials credentials = wallet.privateKey;
-    var addr = await credentials.extractAddress();
+    var addr = '0xB1Dd956C0Acf811b7a3CAAb09697849bbd0D4393';
     var contractAddr = '0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5';
     var apiUrl =
         "https://mainnet.infura.io/v3/b63606f0825343fd85b553d6e471a53b";
@@ -343,6 +344,7 @@ class _HomeScreenState extends State<HomeScreen> {
         EthereumAddress.fromHex(contractAddr));
 
     final balanceFunction = contract.function('balanceOf');
+    final mintFunction = contract.function('mint');
 
     // check our balance in MetaCoins by calling the appropriate function
     final balance = await ethClient
@@ -457,14 +459,14 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onRefresh() async {
     // monitor network fetch
     // if failed,use refreshFailed()
-    loadBalance();
+    loadTokenBalance();
     _refreshController.refreshCompleted();
   }
 
   void _onLoading() async {
     // monitor network fetch
     // if failed,use loadFailed(),if no data return,use LoadNodata()
-    loadBalance();
+    loadTokenBalance();
     setState(() {});
     _refreshController.loadComplete();
   }
